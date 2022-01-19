@@ -1,0 +1,31 @@
+body{
+    background-color: blueviolet;
+}
+#btnSaludar:hover{
+    background-color: rgb(20, 250, 20);
+    color: white;
+}
+#btnSaludar{
+    transition: background-color 2s;
+}
+#anyadir:hover{
+    background-color: rgb(0, 2, 128);
+    color: white;
+}
+#anyadir{
+    transition: background-color 2s;
+}
+#borrarPrimero:hover{
+    background-color: rgb(235, 17, 224);
+    color: white;
+}
+#borrarPrimero{
+    transition: background-color 2s;
+}
+#borrarUltimo:hover{
+    background-color: rgb(255, 9, 9);
+    color: white;
+}
+#borrarUltimo{
+    transition: background-color 2s;
+}
