@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>EVENTOS+DOM+OBJETOS NAVEGADOR. EJEMPLOS I</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>EVENTOS+DOM+OBJETOS NAVEGADOR. EJEMPLOS I</h1>
+    <hr />
+    <h2>Ejemplo 1</h2>
+    <p>Hola, ¿tu nombre y año de nacimiento?</p>
+    Nombre: <input type="text" id="nombre">
+    Año de nacimiento: <input type="number" id="fechanac" name="fechanac" min="1999" max="2019">
+    <input type="button" value="saludar" id="btnSaludar()"/>
+    <p></p> <!-- Aquí se mostrará lo que pide el ejercicio -->
+    <hr />
+    <h2>Ejemplo 2</h2>
+
+    <p>
+    <ul>
+        <li>Lunes</li>
+        <li>Martes</li>
+        <li>Miércoles</li>
+        <li>Jueves</li>
+        <li>Viernes</li>
+    </ul>
+    </p>
+	<input type="button" value="Añadir" id="anyadir"/>
+    <input type="button" value="Borrar primer elemento de la lista" id="borrarPrimero"/>
+    <input type="button" value="Borrar último elemento de la lista" id="borrarUltimo"/>
+
+</body>
+</html>
+<script>
+    //METEMOS NUESTRO CODIGO JQUERY EN LA FUNCION READY
+    $(document).ready(function(){
+        //damos funcionalidad al boton saludar
+        $("[value='saludar']").click(function (){
+            //version 1:usando id
+            let textoMensaje= "Hola"+$("#nombre").val()+" !!"
+            let fecha= $("#fechanac").val();
+            let fechaActual= new Date();
+            if(fechaActual.getFullYear()-fecha<18)
+                textoMensaje +="Eres menor de edad";
+            else
+                textoMensaje +="Eres mayor de edad";
+            $("[value='saludar']").after("<p>"+textoMensaje+"</p>")
+            
+        });
+        $("#anyadir").click(function(){
+            let nuevoElem=prompt("Nuevo elemento de la lista: ");
+            $("ul").append("<li>"+nuevoElem+"</li>");
+        });
+        $("#borrarPrimero").click(function(){
+            $("li:first-child").remove();
+        });
+        $("#borrarUltimo").click(function(){
+            $("li:last-child").remove();
+        });
+
+    });
+</script>
